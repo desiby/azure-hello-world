@@ -73,7 +73,7 @@ jobs:
             pipenv install --dev
             pip install -U pytest
         - name: Run tests
-          run: pytest main-test.py -vvv
+          run: pipenv run pytest main-test.py -vvv
        
     deploy-stage:
         needs: build
