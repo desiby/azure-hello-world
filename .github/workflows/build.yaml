@@ -76,7 +76,7 @@ jobs:
           run: pipenv run pytest main-test.py -vvv
        
     deploy-stage:
-        needs: build
+        needs: test
         runs-on: ubuntu-latest
         if: github.ref == 'refs/heads/release-*'
         steps:
