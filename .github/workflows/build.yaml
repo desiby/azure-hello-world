@@ -77,7 +77,7 @@ jobs:
     deploy-stage:
         needs: test
         runs-on: ubuntu-latest
-        if: github.ref == 'refs/heads/release-*'
+        if: github.ref_name == 'release-*'
         steps:
         - uses: actions/checkout@v2
         - name: Set up Python
