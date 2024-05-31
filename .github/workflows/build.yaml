@@ -24,12 +24,6 @@ jobs:
           with:
             python-version: '3.x'
 
-        - name: Set up Node.js
-          uses: actions/setup-node@v2
-          with:
-            node-version: '20.13.1'
-            run: npm install --global cdktf-cli@latest
-
         - name: Install terraform
           run: |
             sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
@@ -38,6 +32,12 @@ jobs:
             echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
             sudo apt update && sudo apt-get install terraform
             terraform -version
+        
+        - name: Set up Node.js
+          uses: actions/setup-node@v2
+          with:
+              node-version: '20.13.1'
+              run: npm install --global cdktf-cli@latest
         
         - name: Synthesize Terraform
           run: cdktf synth
