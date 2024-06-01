@@ -101,6 +101,7 @@ jobs:
             client-id: ${{ secrets.AZURE_CLIENT_ID }}
             subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
             tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+            auth-type: IDENTITY
         - name: Deploy to staging
           run: |
             cdktf deploy staging-stack --auto-approve
